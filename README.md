@@ -1,5 +1,5 @@
-# alx-project-0x02-setup
 # Project Setup and Basics
+# alx-project-0x02-setup
 ##  Project Description
 This project is a comprehensive introduction to setting up and working with Next.js, 
 TypeScript, and Tailwind CSS. It guides you through creating a modern web 
