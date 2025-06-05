@@ -1,19 +1,33 @@
 // components/layout/Header.tsx
+
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import clsx from 'clsx'
 
 const Header = () => {
+  const router = useRouter()
+  const navItems = [
+    { label: 'Home', path: '/home' },
+    { label: 'About', path: '/about' },
+    { label: 'Posts', path: '/posts' },
+  ]
+
   return (
-    <header className="bg-blue-600 text-white shadow-md">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="text-xl font-semibold">ALX Project</h1>
-        <nav className="space-x-4">
-          <Link href="/" className="hover:underline">Index</Link>
-          <Link href="/home" className="hover:underline">Home</Link>
-          <Link href="/about" className="hover:underline">About</Link>
-          <Link href="/posts" className="hover:underline">Posts</Link>
-          <Link href="/users" className="hover:underline">Users</Link>
-        </nav>
-      </div>
+    <header className="bg-blue-600 text-white px-6 py-4 shadow-md">
+      <nav className="flex gap-6 items-center">
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            href={item.path}
+            className={clsx(
+              'hover:underline transition duration-150',
+              router.pathname === item.path ? 'font-bold underline' : ''
+            )}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   )
 }
