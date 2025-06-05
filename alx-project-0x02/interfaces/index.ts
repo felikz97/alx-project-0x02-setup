@@ -1,5 +1,12 @@
 // interfaces/index.ts
 
+
+export interface PostProps
+  title: string
+  content: string
+  userId: number
+}
+
 export interface ButtonProps {
   label: string
   size?: 'small' | 'medium' | 'large'
@@ -7,7 +14,7 @@ export interface ButtonProps {
   onClick?: () => void
 }
 
-// Already existing interfaces
+
 export interface CardProps {
   title: string
   content: string
