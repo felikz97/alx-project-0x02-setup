@@ -1,10 +1,14 @@
 // pages/home.tsx
 
 import Head from 'next/head'
+import { useState } from 'react'
 import Header from '@/components/layout/Header'
 import Card from '@/components/common/Card'
+import PostModal from '@/components/common/PostModal'
 
 const Home = () => {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <>
       <Head>
@@ -15,18 +19,21 @@ const Home = () => {
         <h1 className="text-3xl font-bold text-center">Welcome to the Home Page</h1>
 
         <Card
-          title="Getting Started"
-          content="This is a reusable Card component created for the ALX project."
+          title="Reusable Components"
+          content="Click below to learn how we build dynamic components."
         />
+        <button
+          onClick={() => setModalOpen(true)}
+          className="block mx-auto mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Open Post Modal
+        </button>
 
-        <Card
-          title="Features"
-          content="Built with Next.js and TypeScript, this project follows modular and reusable component design."
-        />
-
-        <Card
-          title="Continue Learning"
-          content="Keep exploring React components, props, interfaces, and Next.js routing!"
+        <PostModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          title="Post Modal"
+          content="This modal shows the details of a post. It's reusable and can be triggered dynamically."
         />
       </main>
     </>
