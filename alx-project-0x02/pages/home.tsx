@@ -1,8 +1,8 @@
 // pages/home.tsx
 
 import Head from 'next/head'
-import Header from '../components/layout/Header'
-import Card from '../components/common/Card'
+import Header from '@/components/layout/Header'
+import Card from '@/components/common/Card'
 
 const Home = () => {
   return (
